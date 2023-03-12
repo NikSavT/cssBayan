@@ -18,68 +18,46 @@ body {
   margin: 0 auto;
 }
 
-.title {
-  /* display: none; */
-  text-align: center;
-  transition: 0.5s;
-}
+/* .title {
 
-/* .header:hover {
-  display: block;
 } */
 
 .accordion__wrapper {
   max-width: 900px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 2.4rem;
 }
 
 .accordion__list {
   list-style-type: none;
-
 }
 
-.accordion__item:hover > img{
+.label {
+  display: block;
+  padding: 1rem 2rem;
+  border-top: 0.1rem solid #808080;
+  color: #0000FF;
+  font-size: 3rem;
+  transition: 0.7s ease-out;
   cursor: pointer;
-  opacity: 1;
-}
-.accordion__item{
-  z-index: 1;
-
 }
 
 .accordion__title {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.accordion__cross-plus {
   display: block;
-  /* height: 50px; */
-  padding: 1rem 2rem;
-  border: 2px solid #808080;
-  background: #eef0f4;
-
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-size: 5%;
-  background-position-x: 97%;
-  color: #0000FF;
-  opacity: 100%;
-  font-size: 3rem;
-  transition: 1s;
-
+  align-self: center;
+  width: 3rem;
+  height: 3rem;
+  background: url(../assets/svg/plus.svg) center center/contain no-repeat;
   cursor: pointer;
+  opacity: 0;
+  transition: 0.7s;
 
-}
-
-.accordion__title:hover {
-  color: #000000;
-  background-image: url(../assets/svg/plus.svg);
-
-  /* background-image: url(../assets/svg/cross.svg); */
-}
-.accordion__title:hover ~ .accordion__image{
-
-  opacity: 1;
-  height: 100%;
-
-  /* background-image: url(../assets/svg/cross.svg); */
 }
 
 .accordion__input {
@@ -90,9 +68,13 @@ body {
 
 }
 
-.accordion__input:checked + .accordion__image {
+.accordion__input:checked ~ label>.accordion__image {
   height: 100%;
   opacity: 1;
+}
+
+.accordion__input:checked ~ label{
+  color: #000000;
 }
 
 .accordion__image {
@@ -101,8 +83,27 @@ body {
   height: 0;
   margin: 0 auto;
   object-fit: contain;
-  opacity:0;
-  transition: 1s;
-  /* transition: opacity 0.5s, height 0.4s; */
-  /* background-image: url(../assets/img/01.jpg); */
+  opacity: 0;
+  transition: 0.7s;
+}
+
+
+@media (hover: hover) {
+  .accordion:hover .accordion__cross-plus {
+    opacity: 1;
+  }
+
+  .accordion:hover .label {
+    opacity: 1;
+    color: #000000;
+  }
+
+  .accordion__item:hover .accordion__cross-plus {
+    transform: rotate(45deg);
+  }
+
+  .label:hover .accordion__image {
+    height: 100%;
+    opacity: 1;
+  }
 }
