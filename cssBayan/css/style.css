@@ -107,14 +107,6 @@ body {
   margin: 3rem auto;
 }
 
-.label:active .accordion__title {
-  color: #0000FF;
-}
-
-.label:active .accordion__image {
-  width: 62%;
-}
-
 @media (hover: hover) {
   .accordion:hover .accordion__cross-plus {
     opacity: 1;
@@ -134,6 +126,15 @@ body {
     opacity: 1;
   }
 }
+
+.label:active .accordion__title {
+  color: #0000FF;
+}
+
+.label:active .accordion__image {
+  opacity: 0.1;
+}
+
 
 @media (max-width: 1200px) {
   .title {
